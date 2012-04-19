@@ -1,10 +1,12 @@
 package stacktoolarge
 
-class StackTooLargeSpec extends grails.plugin.spock.UnitSpec {
+import grails.test.mixin.*
+import spock.lang.*
+
+@TestFor(A)
+@Mock([B])
+class StackTooLargeSpec extends Specification {
 	def 'failure demonstration'() {
-		given:
-			mockDomain A
-			mockDomain B
 		when:
 			def a = new A(name:'a', bees: [new B(date:new Date(), inthing:true, string:'12345')])
 		then:
